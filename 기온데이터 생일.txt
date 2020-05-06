@@ -1,0 +1,16 @@
+import csv
+import matplotlib.pyplot as plt
+
+f=open('seoul.csv')
+data=csv.reader(f)
+header=next(data)
+result=[]
+
+for row in data:
+ if row[-1] !='':
+        if row[0].split('-')[1]=='09'and row[0].split('-')[2]=='14':
+            result.append(float(row[-1]))
+        
+
+plt.plot(result)
+plt.show()

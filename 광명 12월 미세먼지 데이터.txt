@@ -1,0 +1,26 @@
+import csv
+import matplotlib.pyplot as plt
+f = open('mise_1.csv')  #미세먼지 csv파일 열기 
+data = csv.reader(f)
+next(data)
+
+pm=[]
+
+for i in range(31) :
+    pm.append([]) 		#12월이 31일까지 있어서 31로 설정
+
+for row in data:
+    city =row[0]
+    if row[-2] != '':
+         if city =='경기 광명시':		#도시 광명으로 설정
+            
+            pm[int(row[4].split('-')[2])-1].append(float(row[-2])) 	  #5번째 열에서 일수만 따로 빼서 체크, 미세먼지 농도가 숫자라 
+					실수형으로 자료형 바꿈. 숫자 형태로 출력되게 함.
+
+
+
+#plt.figure(dpi=300)	#요건 왜 있는지 모르겠음
+
+plt.boxplot(pm,showfliers=False)	#박스형태로 나타냄
+
+plt.show()

@@ -19,7 +19,7 @@ for row in data:
 
 
 
-#plt.figure(dpi=300)	#요건 왜 있는지 모르겠음
+#plt.figure(dpi=300)	
 
 plt.boxplot(pm,showfliers=False)	#박스형태로 나타냄
 

@@ -1,0 +1,21 @@
+import csv
+import matplotlib.pyplot as plt
+f = open('rain.csv')
+data = csv.reader(f)
+header = next(data)
+result=[]
+#name = input('Jan:') 
+
+for row in data :
+    if 'Jan' in row[0] :                      
+        
+        for i in row[2:] :
+            result.append(float(i))
+plt.title('Precipitation')          
+plt.plot(result, 'hotpink') 
+#plt.xlabel("month")
+plt.ylabel("Precipitation")
+
+
+
+plt.show() 

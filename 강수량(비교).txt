@@ -1,0 +1,14 @@
+import csv
+import matplotlib.pyplot as plt
+f = open('rain.csv')
+data = csv.reader(f)
+header = next(data)
+result=[]
+for row in data :
+    if row[-1] != '' :                     
+        if row[0].split('-')[1] == '15' :   
+            result.append(float(row[-1]))   
+plt.plot(result, 'hotpink')   
+plt.show()          
+
+f.close()

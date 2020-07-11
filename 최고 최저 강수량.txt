@@ -1,0 +1,28 @@
+import csv 
+
+file = open('rain.csv')
+data = csv.reader(file) 
+
+header = next(data)
+print(header) 
+
+max_temp = 100.0 # 비교를 위해서 가장 낮은 값을 변수에 담는다. 
+min_temp= 99.0
+for row in data:
+	
+    if row[-1] != '' :
+	    if max_temp < float(row[-1]):
+
+	        max_temp = float(row[-1])
+
+    if row[-1] != '' :
+        if min_temp > float(row[-1]):
+        
+            min_temp = float(row[-1])
+
+
+
+print('서울 최고 강수량은,' ,max_temp,'최저 강수량은',min_temp,'입니다.')
+
+
+file.close() 
